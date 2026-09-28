@@ -106,18 +106,16 @@ Do not invent tasks that are not provided.
     console.error('Gemini failed:', lastError);
 
     return res.json({
-    reply: generateLocalAdvice(prompt || '', tasks),
-    error: 'AI temporarily unavailable; showing local advice.'
-});
+      reply: generateLocalAdvice(prompt || '', tasks),
+      error: 'AI temporarily unavailable; showing local advice.'
+    });
 
   } catch (err: any) {
     console.error('Advisor error:', err);
 
     return res.status(500).json({
-      reply: generateLocalAdvice(
-        req.body?.prompt || '',
-        req.body?.tasks || []
-      )
-    });
+  error: 'Advisor error',
+  details: err?.message || 'Unknown error'
+});
   }
 }
