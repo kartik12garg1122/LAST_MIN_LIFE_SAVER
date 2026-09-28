@@ -1,0 +1,6 @@
+{
+  "name": "Student Life Saver",
+  "description": "An intelligent academic productivity app for students featuring workload balancing, timeline scheduling, automated rescue center, and AI study advisor.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
