@@ -105,15 +105,15 @@ Do not invent tasks that are not provided.
 
     console.error('Gemini failed:', lastError);
 
-    return res.json({
-      reply: generateLocalAdvice(prompt || '', tasks),
-      error: 'AI temporarily unavailable; showing local advice.'
-    });
+    return res.status(500).json({
+  error: 'Gemini request failed',
+  details: lastError?.message || 'Unknown Gemini error'
+});
 
   } catch (err: any) {
     console.error('Advisor error:', err);
 
-    return res.status(500).json({
+   return res.status(500).json({
   error: 'Advisor error',
   details: err?.message || 'Unknown error'
 });
